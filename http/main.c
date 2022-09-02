@@ -17,10 +17,20 @@ int main(int argc, char* argv[]) {
   char* host = argv[1];
   char* verb = argv[2];
   char* path = argv[3];
-
-  /*
-    STUDENT CODE HERE
-   */
+  char response[4096];
+  char* space = " ";
   
+
+strcat(verb,space);
+strcat(verb,path);
+strcat(verb,space);
+strcat(verb,"HTTP/1.0\r\nHost: ");
+strcat(verb,host);
+strcat(verb,"\r\n\r\n");
+// Concatenation of verb,path and a Host header(as suggested in the Canvas discussion)
+ 
+//printf("%s\n", verb);
+ send_http(host,verb,response,4096);
+ printf("%s", response);
   return 0;
 }
