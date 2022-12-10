@@ -36,7 +36,7 @@ def gbn_server(iface:str, port:int, fp:BinaryIO) -> None:
                 #print(u_message)
                 fp.write(u_message)
                 #if the message received< 248 it's because it's the last message.
-                if len(u_message) < 248 :
+                if len_sent < 248 :
                     fp.close()
                     udp_sock.close()
                     break
